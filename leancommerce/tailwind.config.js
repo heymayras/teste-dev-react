@@ -13,6 +13,7 @@ module.exports = {
       lgrey: "#9ca3af",
       dgrey: "#374151",
       ddgrey: "#111827",
+      red: "#FF0000",
 
       plugins: [],
 

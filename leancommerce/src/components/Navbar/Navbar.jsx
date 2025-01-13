@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Navbar.css";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
 const Navbar = () => {
+  const [menu, setMenu] = useState("Shop");
+
   return (
     <header className="sticky top-0 z-40 w-full bg-white text-gray-600 outline outline-1 outline-dgrey">
       <div className="flex w-full items-center justify-between px-7 py-6 md:px-14 2xl:px-20 min-[1690px]:px-24 min-[1750px]:px-28">
@@ -40,7 +43,7 @@ const Navbar = () => {
           <ul className="hidden items-center gap-x-8 text-sm font-medium md:flex lg:gap-x-14 lg:text-base">
             {/* HOME BUTTON */}
             <li>
-              <a href="/home">
+              <Link to="/" role="button">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -55,11 +58,11 @@ const Navbar = () => {
                     d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
                   />
                 </svg>
-              </a>
+              </Link>
             </li>
             {/* LOGIN BUTTON */}
             <li>
-              <a href="/login">
+              <Link href="/login" role="button">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -74,7 +77,7 @@ const Navbar = () => {
                     d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
                   />
                 </svg>
-              </a>
+              </Link>
             </li>
             <li>
               {" "}
@@ -99,7 +102,7 @@ const Navbar = () => {
             <li>
               {" "}
               {/* SHOPPING CART BUTTON */}
-              <a href="/carrinhocompras">
+              <Link href="/cart" role="button">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -114,7 +117,10 @@ const Navbar = () => {
                     d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
                   />
                 </svg>
-              </a>
+                {/* {/* <span className="absolute right-0 top-0 rounded-full bg-red w-4 h-4 top right p-0 m-0 text-white font-mono text-sm  leading-tight text-center">
+                  0 
+                </span> */}
+              </Link>
             </li>
           </ul>
         </nav>
