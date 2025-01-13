@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Navbar.css";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [menu, setMenu] = useState("Shop");
@@ -43,7 +43,7 @@ const Navbar = () => {
           <ul className="hidden items-center gap-x-8 text-sm font-medium md:flex lg:gap-x-14 lg:text-base">
             {/* HOME BUTTON */}
             <li>
-              <Link to="/" role="button">
+              <Link to="/">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -62,7 +62,7 @@ const Navbar = () => {
             </li>
             {/* LOGIN BUTTON */}
             <li>
-              <Link href="/login" role="button">
+              <Link to="/login">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -102,7 +102,7 @@ const Navbar = () => {
             <li>
               {" "}
               {/* SHOPPING CART BUTTON */}
-              <Link href="/cart" role="button">
+              <Link to="/cart">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
