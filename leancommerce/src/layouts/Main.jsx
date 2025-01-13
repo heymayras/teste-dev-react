@@ -1,14 +1,16 @@
 import React from "react";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const Main = () => {
   return (
-    <div className="conteiner mx-auto">
+    <>
       <Navbar />
-      <div>
+      <div className="container mx-auto">
         <p>Main</p>
       </div>
-    </div>
+      <Footer />
+    </>
   );
 };
 

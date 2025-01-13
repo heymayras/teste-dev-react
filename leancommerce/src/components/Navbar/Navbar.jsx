@@ -3,7 +3,7 @@ import "./Navbar.css";
 
 const Navbar = () => {
   return (
-    <header className="sticky top-0 z-40 w-full bg-white text-gray-600">
+    <header className="sticky top-0 z-40 w-full bg-white text-gray-600 outline outline-1 outline-dgrey">
       <div className="flex w-full items-center justify-between px-7 py-6 md:px-14 2xl:px-20 min-[1690px]:px-24 min-[1750px]:px-28">
         {/*LOGO*/}
         <a href="/">
