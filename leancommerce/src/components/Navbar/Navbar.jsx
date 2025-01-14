@@ -120,7 +120,7 @@ const Navbar = () => {
                   />
                 </svg>
                 <span
-                  className="absolute right-12 top-12
+                  className="absolute right-13 top-12
                  rounded-full bg-red w-4 h-4 top right p-0 m-0 text-white font-mono text-sm  leading-tight text-center"
                 >
                   {itemAmount}
