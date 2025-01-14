@@ -17,6 +17,9 @@ Versões utilizadas
 "use-local-storage": "^3.0.0",
 "web-vitals": "^2.1.4"
 
+Node.js v22.13.0.
+npm -v 11.0.0
+
 INSTRUÇÕES PARA INICIALIZAÇÃO DA APLICAÇÃO:
 
 Para a inicialização do projeto abra o terminal, em seguida abra o diretório do projeto com:
