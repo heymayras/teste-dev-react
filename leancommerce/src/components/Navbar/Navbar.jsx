@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
+import { CartContext } from "../../Context/CartContext";
 
 const Navbar = () => {
   const [menu, setMenu] = useState("Shop");
+  const { itemAmount } = useContext(CartContext);
 
   return (
     <header className="sticky top-0 z-40 w-full bg-white text-gray-600 outline outline-1 outline-dgrey">
@@ -117,9 +119,12 @@ const Navbar = () => {
                     d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
                   />
                 </svg>
-                {/* {/* <span className="absolute right-0 top-0 rounded-full bg-red w-4 h-4 top right p-0 m-0 text-white font-mono text-sm  leading-tight text-center">
-                  0 
-                </span> */}
+                <span
+                  className="absolute right-12 top-12
+                 rounded-full bg-red w-4 h-4 top right p-0 m-0 text-white font-mono text-sm  leading-tight text-center"
+                >
+                  {itemAmount}
+                </span>{" "}
               </Link>
             </li>
           </ul>

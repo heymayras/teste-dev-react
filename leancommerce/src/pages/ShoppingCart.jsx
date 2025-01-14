@@ -3,7 +3,7 @@ import { CartContext } from "../Context/CartContext";
 import CartComp from "../components/CartComp/CartComp";
 
 const ShoppingCart = () => {
-  const { cart, clearCart } = useContext(CartContext);
+  const { cart, clearCart, total } = useContext(CartContext);
   return (
     <div className="mx-auto bg-white py-4">
       <h1 className="text-3xl font-bold text-dgrey text-center my-4">
@@ -17,7 +17,7 @@ const ShoppingCart = () => {
         <div className="flex w-full justify-between items-center">
           {" "}
           <div className="uppercase font-semibold">
-            <span>TOTAL</span> R$ 1000
+            <span>TOTAL</span> R$ {parseFloat(total).toFixed(2)}
           </div>
           {/* LIMPAR O CARRINHO */}
           <div

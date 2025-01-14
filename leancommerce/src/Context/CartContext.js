@@ -1,11 +1,31 @@
 import React, { createContext, useState, useEffect } from "react";
-import CartItem from "../components/CartComp/CartComp";
-
 export const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
+  //cart state
   const [cart, setCart] = useState([]);
+  // item amount state
+  const [itemAmount, setItemAmount] = useState(0);
 
+  //update cart amount
+  useEffect(() => {
+    if (cart) {
+      const amount = cart.reduce((accumulator, currentItem) => {
+        return accumulator + currentItem.amount;
+      }, 0);
+      setItemAmount(amount);
+    }
+  }, [cart]);
+
+  //total price
+  const [total, setTotal] = useState(0);
+
+  useEffect(() => {
+    const total = cart.reduce((accumulator, currentItem) => {
+      return accumulator + currentItem.price * currentItem.amount;
+    }, 0);
+    setTotal(total);
+  });
   //adiciona ao carrinho
   const addToCart = (product, id) => {
     console.log(product);
@@ -79,6 +99,8 @@ const CartProvider = ({ children }) => {
         clearCart,
         increaseAmount,
         decreaseAmount,
+        itemAmount,
+        total,
       }}
     >
       {children}
