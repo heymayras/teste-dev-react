@@ -1,10 +1,20 @@
-import React, { createContext, useState, useEffect } from "react";
-import useLocalStorage from "use-local-storage";
+import React, { createContext, useState, useEffect, use } from "react";
+
 export const CartContext = createContext();
+
+const getLocalCartData = () => {
+  let localCartData = localStorage.getItem("dataCart");
+  if (!localCartData) {
+    return [];
+  } else {
+    return JSON.parse(localCartData);
+  }
+};
 
 const CartProvider = ({ children }) => {
   //cart state
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(getLocalCartData());
+  // const [cart, setCart] = useState([]);
   // item amount state
   const [itemAmount, setItemAmount] = useState(0);
 
@@ -89,6 +99,10 @@ const CartProvider = ({ children }) => {
     }
   };
 
+  useEffect(() => {
+    localStorage.setItem("dataCart", JSON.stringify(cart));
+  }, [cart]);
+
   return (
     <CartContext.Provider
       value={{
@@ -100,6 +114,7 @@ const CartProvider = ({ children }) => {
         decreaseAmount,
         itemAmount,
         total,
+        getLocalCartData,
       }}
     >
       {children}
