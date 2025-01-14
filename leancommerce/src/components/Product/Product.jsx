@@ -1,7 +1,9 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { CartContext } from "../../Context/CartContext";
 
 const Product = ({ product }) => {
+  const { addToCart } = useContext(CartContext);
   const { id, image, category, title, price } = product;
   return (
     <div className=" rounded-md border border-lgrey border- h-[350px] mb-4 relative overflow-hidden group transition ">
@@ -16,7 +18,7 @@ const Product = ({ product }) => {
               R$ {price}{" "}
             </p>
           </div>
-          <Link to="/productpage">
+          <Link to={`/product/${id}`}>
             <img
               className="max-h-[160px] group-hover:scale-125 transition duration-300"
               src={image}
@@ -46,8 +48,8 @@ const Product = ({ product }) => {
 
           <div className="absolute bottom-2 justify-center">
             <button
-              type="button"
-              className="mx-auto py-1 px-28 mt-3 text-sm font-medium text-nowrap text-white focus:outline-none bg-ddgrey rounded-lg border-ddgrey hover:bg-dgreen hover:text-white focus:z-10 focus:ring-4 focus:ring-lgreen"
+              onClick={() => addToCart(product, id)}
+              className="mx-auto py-1 px-28 mt-3 text-sm font-medium text-nowrap text-white focus:outline-none bg-ddgrey rounded-lg border-ddgrey hover:bg-dgreen hover:text-white focus:z-10"
             >
               Buy it
             </button>
