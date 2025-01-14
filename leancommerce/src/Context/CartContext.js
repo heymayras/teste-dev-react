@@ -1,4 +1,5 @@
 import React, { createContext, useState, useEffect } from "react";
+import useLocalStorage from "use-local-storage";
 export const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
@@ -28,8 +29,6 @@ const CartProvider = ({ children }) => {
   });
   //adiciona ao carrinho
   const addToCart = (product, id) => {
-    console.log(product);
-    console.log(`item ${product.title} added to the cart`);
     const newItem = { ...product, amount: 1 };
     //checa se o produto já está no carrinho de compras
     const cartItem = cart.find((item) => {
